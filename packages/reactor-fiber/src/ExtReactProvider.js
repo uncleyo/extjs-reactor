@@ -6,7 +6,6 @@ import ReactFiberReconciler from 'react-dom/lib/ReactFiberReconciler';
 import ReactDOMFrameScheduling from 'react-dom/lib/ReactDOMFrameScheduling';
 import invariant from 'fbjs/lib/invariant';
 import emptyObject from 'fbjs/lib/emptyObject';
-import { precacheFiberNode } from 'react-dom/lib/ReactDOMComponentTree';
 import { isListener, createConfig, wrapDOMElement, applyUpdate, capitalize } from './util';
 import HTMLElementWrapper from './HTMLElementWrapper';
 
@@ -91,7 +90,7 @@ function appendChild(parent, child) {
 }
 
 const ExtJSRenderer = ReactFiberReconciler({
-    
+
     createInstance(type, props, internalInstanceHandle) {
         if (type.startsWith('ExtReact::')) {
             // Ext JS Components
