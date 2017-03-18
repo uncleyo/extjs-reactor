@@ -11,6 +11,8 @@ const TextField = 'ExtReact::TextField';
 const Grid = 'ExtReact::Grid';
 const Menu = 'ExtReact::Menu';
 const MenuItem = 'ExtReact::MenuItem';
+const TitleBar = 'ExtReact::TitleBar';
+const Container = 'ExtReact::Container';
 
 ExtReactProvider.setDebug(true);
 
@@ -20,7 +22,8 @@ export default class App extends React.Component {
         showButton: true,
         showDiv: true, 
         showSpan: true,
-        buttonText: 'Click Me'
+        buttonText: 'Click Me',
+        showMenu: true
     };
 
     store = Ext.create('Ext.data.Store', {
@@ -29,12 +32,17 @@ export default class App extends React.Component {
         ]
     })
 
+    toggleMenu = () => this.setState({ showMenu: !this.state.showMenu })
+
     render() {
-        const { showButton, showDiv, buttonText, showSpan } = this.state;
+        const { showMenu, showButton, showDiv, buttonText, showSpan } = this.state;
 
         return (
             <ExtReactProvider>
-                <Panel title="App" shadow fullscreen>
+                <Container title="App" fullscreen>
+                    <TitleBar title="ExtReact on Fiber" docked="top">
+                        <Button align="left" iconCls="x-fa fa-bars" handler={this.toggleMenu}/>
+                    </TitleBar>
                     <Toolbar docked="top">
                         <TextField placeholder="Button Text..." value={buttonText} onChange={(tb, value) => this.setState({buttonText: value})}/>
                         <CheckBoxField boxLabel="Show div" onChange={(cb, checked) => this.setState({ showDiv: checked })} checked={showDiv}/>
@@ -46,6 +54,11 @@ export default class App extends React.Component {
                             </Menu>
                         </Button>
                     </Toolbar>
+                    { showMenu && (
+                        <Panel docked="left" width="250" shadow style={{zIndex: 100}}>
+                            <div>Menu</div>
+                        </Panel>
+                    ) }
                     <div>
                         <div>
                             <section>
@@ -53,7 +66,7 @@ export default class App extends React.Component {
                             </section>
                         </div>
                     </div>
-                </Panel>
+                </Container>
             </ExtReactProvider>            
         )
 
