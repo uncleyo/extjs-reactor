@@ -72,6 +72,7 @@ export default class ExtReactProvider extends Component {
 function appendChild(parent, child) {
     if (parent instanceof Ext.Base) {
         if (child instanceof Ext.Base && child.initialConfig.rel) {
+            // appending an Ext.Component to an Ext.Container
             const name = `set${capitalize(child.initialConfig.rel)}`;
             const setter = parent[name];
             if (setter) {
@@ -79,11 +80,12 @@ function appendChild(parent, child) {
                 setter.call(parent, child);
             }
         } else if (parent instanceof Ext.Container) {
+            // adding an HTML element to an Ext.Container
             if (debug) console.log('Adding item to Ext.Container', child);
             parent.add(wrapDOMElement(child));
         }
     } else if (child instanceof Ext.Base) {
-        // Add component to root div
+        // Rendering the root Ext JS component to the target div from the render method.
         if (debug) console.log('rendering root Ext.Component', child);
         child.setRenderTo(parent);
     }

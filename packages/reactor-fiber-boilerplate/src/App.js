@@ -69,42 +69,6 @@ export default class App extends React.Component {
                 </Container>
             </ExtReactProvider>            
         )
-
-        /*return (
-            <ExtReactProvider>
-                <Panel title="Panel" shadow fullscreen bodyPadding={10} layout="vbox">
-                    <Toolbar docked="top">
-                        <CheckBoxField boxLabel="Show Button" onChange={(cb, checked) => this.setState({ showButton: checked })} checked={showButton}/>
-                        <CheckBoxField boxLabel="Show div" onChange={(cb, checked) => this.setState({ showDiv: checked })} checked={showDiv}/>
-                        <CheckBoxField boxLabel="Show span" onChange={(cb, checked) => this.setState({ showSpan: checked })} checked={showSpan}/>
-                        <Spacer/>
-                        <TextField label="Button Text" value={buttonText} onChange={(tb, value) => this.setState({buttonText: value})}/>
-                    </Toolbar>
-                    <ToggleField text={buttonText}/>
-                    {showDiv && (
-                        <div>div {showSpan && <span>span</span>}</div>
-                    )}
-                    {showButton && <Button text={buttonText}/>}
-                    <MyComponent/>
-
-                    <Grid 
-                        flex={1} 
-                        store={this.store}
-                        columns={[
-                            { dataIndex: 'firstName', text: 'First Name' },
-                            { dataIndex: 'lastName', text: 'Last Name' }
-                        ]}
-                    />
-                </Panel>
-            </ExtReactProvider>
-        )*/
     }
 
-}
-
-
-class MyComponent extends React.Component {
-    render() {
-        return <Button text="In Component"/>
-    }
 }

@@ -5,10 +5,20 @@ import ReactDOM from 'react-dom';
 import React from 'react';
 import HTMLElementWrapper from './HTMLElementWrapper';
 
+/**
+ * Returns true if the prop should be converted to a listener config
+ * @param {string} prop 
+ */
 export function isListener(prop) { 
     return prop.match(/^on[A-Z]/);
 }
 
+/**
+ * Creates a config object for an Ext JS component.
+ * @param {string} type 
+ * @param {object} props 
+ * @returns {object}
+ */
 export function createConfig(type, props) {
     const xtype = type.replace(/^ExtReact::/, '').toLowerCase();
     let listeners = {};
