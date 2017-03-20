@@ -69,6 +69,11 @@ export default class ExtReactProvider extends Component {
 
 }
 
+/**
+ * Implementation of both appendChild and appendInitialChild for ReactFiberReconciler
+ * @param {Ext.Base/HTMLElement} parent 
+ * @param {Ext.Base/HTMLElementWrapper} child 
+ */
 function appendChild(parent, child) {
     if (parent instanceof Ext.Base) {
         if (child instanceof Ext.Base && child.initialConfig.rel) {
