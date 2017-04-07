@@ -3,6 +3,7 @@
   "version": "0.2.12",
   "description": "Use Ext JS components in React.",
   "main": "dist/index.js",
+  "module": "src/index.js",
   "typings": "index.d.ts",
   "scripts": {
     "watch": "babel ./src --out-dir ./dist --source-maps inline --watch",
