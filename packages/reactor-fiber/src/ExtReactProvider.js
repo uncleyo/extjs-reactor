@@ -1,9 +1,7 @@
 'use strict';
 
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import ReactFiberReconciler from 'react-dom/lib/ReactFiberReconciler';
-import ReactDOMFrameScheduling from 'react-dom/lib/ReactDOMFrameScheduling';
+import ReactDOM, { ReactFiberReconciler, ReactDOMFrameScheduling } from 'react-dom';
 import invariant from 'fbjs/lib/invariant';
 import emptyObject from 'fbjs/lib/emptyObject';
 import { isListener, createConfig, wrapDOMElement, applyUpdate, capitalize } from './util';
@@ -196,9 +194,9 @@ const ExtJSRenderer = ReactFiberReconciler({
         return emptyObject;
     },
 
-    scheduleAnimationCallback: ReactDOMFrameScheduling.rAF,
+    // scheduleAnimationCallback: ReactDOMFrameScheduling.rAF,
 
-    scheduleDeferredCallback: ReactDOMFrameScheduling.rIC,
+    // scheduleDeferredCallback: ReactDOMFrameScheduling.rIC,
 
     shouldSetTextContent(props) {
         return typeof props.children === 'string' || typeof props.children === 'number';
