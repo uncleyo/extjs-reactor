@@ -12,9 +12,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@extjs/ext-react": "^6.5.0",
     "@extjs/reactor-fiber": "^0.2.12",
-    "react": "16.0.0-alpha.6",
-    "react-dom": "16.0.0-alpha.6"
+    "react": "^16.0.0-alpha.12",
+    "react-dom": "^16.0.0-alpha.12"
   },
   "devDependencies": {
     "@extjs/reactor-webpack-plugin": "^0.2.12",
