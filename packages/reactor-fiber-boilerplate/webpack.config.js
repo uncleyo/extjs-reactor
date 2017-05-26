@@ -13,11 +13,10 @@ module.exports = function (env) {
             NODE_ENV: nodeEnv
         }),
         new ExtJSReactorWebpackPlugin({
-            sdk: 'ext/ext',
+            sdk: 'ext',
             theme: 'theme-material',
             asynchronous: true,
             packages: [],
-            packageDirs: ['ext/packages'],
             production: isProd
         })        
     ];

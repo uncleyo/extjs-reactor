@@ -149,7 +149,7 @@ const ExtJSRenderer = ReactFiberReconciler({
     insertBefore(parent, child, beforeChild) {
         if (debug) console.log('insertBefore', arguments);
         if (beforeChild instanceof HTMLElementWrapper) beforeChild = Ext.Component.fromElement(beforeChild.getContentEl())
-        if (child instanceof HTMLElement) child = wrapDOMElement(child);
+        if (child instanceof HTMLElementWrapper) child = wrapDOMElement(child);
         parent.insertBefore(child, beforeChild);
     },
 
